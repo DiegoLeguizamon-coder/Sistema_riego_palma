@@ -61,8 +61,8 @@ sensorACSuelo.atten(ADC.ATTN_11DB)
 
 
 #--------------------Sensor Luz Ambiente ----------------------
-'''sensorAC=ADC(pin(2))
-sensorAC.atten(ADC.ATTN_11DB)'''
+sensorAC_1=ADC(pin(35))
+sensorAC_1.atten(ADC.ATTN_11DB)
     
 #--------------------Sensor Luz Ambiente ----------------------
 
@@ -76,14 +76,19 @@ from dht import DHT11
 sensor = DHT11(pin(15))
 #--------------------Fin Sensor temp_hum-------------------
 
-#-------------------Firebase ------------------------------4
+#----------------------Relay------------------------
+relay = pin(4, pin.OUT)
 
-import ufirebase as firebase
-firebase.setURL("https://curso-android-firebase-6ae58-default-rtdb.firebaseio.com/")
+#-------------------Firebase ------------------------------
+
+#import ufirebase as firebase
+#firebase.setURL("https://curso-android-firebase-6ae58-default-rtdb.firebaseio.com/")
+
+#url = "https://api.thingspeak.com/update?api_key=LGCLNYYRP7WRBFEL"
 
 #----------------------Lógica ---------------------
 
-for i in range(10):
+for i in range(100):
     '''
     #hum_suelo_D = sensor.value()
     hum_suelo_AC=sensorAC.read()
@@ -98,9 +103,7 @@ for i in range(10):
     hum_suelo_AC=sensorACSuelo.read()
     #hum_suelo_AC=mapear(hum_suelo_AC,0,4095,100,0)
     luz_amb_AC=sensorAC.read()
-    luz_AC=sensorAC.read()
-    temp = (sensor.temperature())
-    hum = (sensor.humidity())
+    luz_AC=sensorAC_1.read()
     
     print("*"*32)
     print(f"Toma de datos: {i}")
@@ -111,21 +114,36 @@ for i in range(10):
     while retry < 3:
         try:
             sensor.measure()
+            temp = (sensor.temperature())
+            hum = (sensor.humidity())
             break
         except:
             retry = retry + 1
             print(".", end = "")
+
+    '''sensor.measure()
+    temp = (sensor.temperature())
+    hum = (sensor.humidity())'''
     print(f"La temperatura es : {temp}")
     print(f"La humedad es : {hum}")
     
-    firebase.addto("project/palma", {"temperature": temp,"humidity":hum,"humidity_floor": hum_suelo_AC, "regular_light": luz_AC, "ambient light": luz_amb_AC},  bg=0)
+    if hum>=65:
+        relay.value(1)
+        print(f"Estado Relay {relay.value()}")
+    else:
+        relay.value(0)
+        print(f"Estado Relay {relay.value()}")
+    
+    #firebase.addto("project/palma", {"temperature": temp,"humidity":hum,"humidity_floor": hum_suelo_AC, "regular_light": luz_AC, "ambient_light": luz_amb_AC},  bg=0)
+    #respuesta = urequests.get(url+"&field1="+str(temp)+"&field2="+str(hum)+"&field3="+str(hum_suelo_AC)+"&field4="+str(luz_AC)+"&field=5"+str(luz_amb_AC))
     
     if hum_suelo_AC>=3000:
         print("Humedad baja, abrir llave de riego")
-        open()
+        #open()
     else:
         print("Humedad alta, cerrar llave de riego")
-        close()
+        #close()
     print("*"*32)
     print(" ")
+    sleep(2)
     

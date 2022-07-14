@@ -10,14 +10,15 @@ def mapear(valor_sensor, minimo_entrada, maximo_entrada, minimo_salida, maximo_s
   return valor_mapeado
 
 while True:
-    retry = 0
+    '''retry = 0
     while retry < 3:
         try:
-            sensor.measure()
+            
             break
         except:
             retry = retry + 1
-            print(".", end = "")
+            print(".", end = "")'''
+    sensor.measure()
     temp = (sensor.temperature())
     hum = (sensor.humidity())
     print("**"*30)
