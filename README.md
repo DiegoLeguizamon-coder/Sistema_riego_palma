@@ -1,4 +1,4 @@
-# SISTEMA DE RIEGO
+# SISTEMA DE RIEGO PARA PALMA DE ACEITE
 ## _Sistema de riego para previvero de palma de aceite._
 
 [![Sistema de riego](https://i.imgur.com/G86kQ4P.png)](https://github.com/y2jhotaru/scnacad)
@@ -8,11 +8,11 @@
 El sistema se encuentra conectado a Fire base y ......... donde nos permite visualizar y tener un control del previvero de acuerdo a las especificaciones del tecnico el riego.
 ## Características
 
--Gestion humedad del cultivo en el previvero.
--Control del estado de humedad y temperatura del previvero.
--Visualizacion de datos generados por los sensores.
--Implementacion en otros tipos de cultivos.
--Sistema de bajo costo.
+- Gestion humedad del cultivo en el previvero.
+- Control del estado de humedad y temperatura del previvero.
+- Visualizacion de datos generados por los sensores.
+- Implementacion en otros tipos de cultivos.
+- Sistema de bajo costo.
 
 
 > Fundacion Universitaria del Área Andina
