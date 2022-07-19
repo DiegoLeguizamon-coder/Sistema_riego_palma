@@ -1,7 +1,7 @@
 # SISTEMA DE RIEGO PARA PALMA DE ACEITE
 ## _Sistema de riego para previvero de palma de aceite._
 
-[![Sistema de riego](https://i.imgur.com/G86kQ4P.png)](https://github.com/y2jhotaru/scnacad)
+[![Sistema de riego](https://github.com/DiegoLeguizamon-coder/esp32-palma/blob/main/palma.jpg)
 
 (Sistema de riego para un previvero de palma de aceite.) Se creo un sistema IoT creado con dos ESP32 y MicroPython que nos permite visualizar el cosumo de agua y gestionarla.
 
