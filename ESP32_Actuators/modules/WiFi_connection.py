@@ -5,7 +5,7 @@ import ujson
 from utime import sleep
 import random
 
-def conect_Wifi(red, password):
+def connect_Wifi(red, password):
      global miRed
      miRed = network.WLAN(network.STA_IF)     
      if not miRed.isconnected():              #Si no está conectado…

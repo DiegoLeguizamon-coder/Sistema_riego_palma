@@ -61,6 +61,10 @@ def loop_sensor_TS(Timer):
         "ambient_light": s_light,
         "date": date
         }
+        #request_url = "https://backend.thinger.io/v3/users/DiegoLeguizamon/devices/esp_3201/callback/data"
+        #header_data = { "content-type": 'application/json', "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJEZXZpY2VDYWxsYmFja19lc3BfMzIwMSIsInN2ciI6InVzLWVhc3QuYXdzLnRoaW5nZXIuaW8iLCJ1c3IiOiJEaWVnb0xlZ3VpemFtb24ifQ.CRu0RlSpxtg9DeVERs9E3i-shaqnDJTQcnnAIBLzTdQ'}
+        #response = urequests.post(request_url, headers = header_data, data = measurements)
+        #print(f"Response TS: {response.status_code , response.text}")
             
     print("%"*32)
     sleep(1)

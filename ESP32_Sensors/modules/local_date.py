@@ -13,5 +13,6 @@ def take_time():
     hour = date[11:13]
     minute = date[14:16]
     seconds = date[17:19]
-    current_date = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + seconds 
+    current_date = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + seconds
+    response.close()
     return current_date
