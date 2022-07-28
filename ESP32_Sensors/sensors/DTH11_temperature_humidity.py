@@ -17,8 +17,11 @@ def start_sensor():
                
 def temperature():
     start_sensor()
+    print(sensor.temperature())
     return (sensor.temperature())
+    
 
 def humidity():
     start_sensor()
+    print(sensor.humidity())
     return (sensor.humidity())

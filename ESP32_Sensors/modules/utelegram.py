@@ -58,10 +58,10 @@ class ubot:
             return None
 
     def listen(self):
-        while True:
-            self.read_once()
-            time.sleep(self.sleep_btw_updates)
-            gc.collect()
+        self.read_once()
+        time.sleep(self.sleep_btw_updates)
+        gc.collect()
+            
 
     def read_once(self):
         messages = self.read_messages()

@@ -1,6 +1,6 @@
 from machine import Pin as pin
 
-relay = pin(4, pin.OUT)
+relay = pin(14, pin.OUT)
 
 def state_ventilator(state):
     relay.value(state)
